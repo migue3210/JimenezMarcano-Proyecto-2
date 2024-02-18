@@ -4,6 +4,8 @@
  */
 package operativosjimenezmarcano2;
 
+import Objects.*;
+
 /**
  *
  * @author Miguel
@@ -14,7 +16,12 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        // TODO code application logic here
+        
+        Studio studio = new Studio("CN");
+        StudioCharacter uwu = studio.generateCharacter();
+        uwu.printStatitics();
+        StudioCharacter uwu2 = studio.generateCharacter();
+        uwu2.printStatitics();
     }
     
 }

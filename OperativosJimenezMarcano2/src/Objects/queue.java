@@ -8,25 +8,25 @@ package Objects;
 public class Queue {
 
     private int length;
-    private Character head;
+    private StudioCharacter head;
 
     public Queue() {
         this.length = 0;
         this.head = null;
     }
 
-    public void setHead(Character head) {
+    public void setHead(StudioCharacter head) {
         this.head = head;
     }
 
-    public Character getHead() {
+    public StudioCharacter getHead() {
         return head;
     }
     
-    public Character getLast(){
-        Character pointer = getHead();
+    public StudioCharacter getLast(){
+        StudioCharacter pointer = getHead();
         while (pointer.getNext() != null){
-            pointer = (Character) pointer.getNext();
+            pointer = (StudioCharacter) pointer.getNext();
         }
         return pointer;
     }
@@ -36,10 +36,10 @@ public class Queue {
     }
 
     public void printQueue() {
-        Character nodo = getHead();
+        StudioCharacter nodo = getHead();
         while (nodo != null) {
-            System.out.print(" [" + nodo.getName() + "]");
-            nodo = (Character) nodo.getNext();
+            System.out.print(" [" + nodo.getId() + "]");
+            nodo = (StudioCharacter) nodo.getNext();
         }
     }
 
@@ -49,16 +49,16 @@ public class Queue {
         if (isEmpty()){
             System.out.println("The queue is empty");
         }else{
-            Character pointer = getHead();
+            StudioCharacter pointer = getHead();
             while (pointer.getNext() != getLast()){
-                pointer = (Character) pointer.getNext();
+                pointer = (StudioCharacter) pointer.getNext();
             }
             pointer.setNext(null);                       
         }
         length--;
     }
 
-    public void enqueue(Character nodo) {
+    public void enqueue(StudioCharacter nodo) {
 
         if (isEmpty()) {
             setHead(nodo);
