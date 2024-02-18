@@ -50,7 +50,7 @@ public class BattleInterface extends javax.swing.JFrame {
         level3Label1 = new javax.swing.JLabel();
         level3RegularShow = new javax.swing.JLabel();
         reinforceLabel1 = new javax.swing.JLabel();
-        reinforcRegularShow = new javax.swing.JLabel();
+        reinforceRegularShow = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -161,11 +161,11 @@ public class BattleInterface extends javax.swing.JFrame {
         reinforceLabel1.setText("Refuerzo");
         regularShowPanel.add(reinforceLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, -1, -1));
 
-        reinforcRegularShow.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
-        reinforcRegularShow.setForeground(new java.awt.Color(255, 255, 255));
-        reinforcRegularShow.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
-        reinforcRegularShow.setText("| id2 | id1 |");
-        regularShowPanel.add(reinforcRegularShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, -1, -1));
+        reinforceRegularShow.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        reinforceRegularShow.setForeground(new java.awt.Color(255, 255, 255));
+        reinforceRegularShow.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
+        reinforceRegularShow.setText("| id2 | id1 |");
+        regularShowPanel.add(reinforceRegularShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, -1, -1));
 
         getContentPane().add(regularShowPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 620, 640));
 
@@ -226,10 +226,10 @@ public class BattleInterface extends javax.swing.JFrame {
     private javax.swing.JLabel regularShowLogo;
     private javax.swing.JPanel regularShowPanel;
     private javax.swing.JLabel regularShowVictories;
-    private javax.swing.JLabel reinforcRegularShow;
     private javax.swing.JLabel reinforceAvatar;
     private javax.swing.JLabel reinforceLabel;
     private javax.swing.JLabel reinforceLabel1;
+    private javax.swing.JLabel reinforceRegularShow;
     private javax.swing.JLabel victoriesLabel;
     private javax.swing.JLabel vsLabel;
     // End of variables declaration//GEN-END:variables
