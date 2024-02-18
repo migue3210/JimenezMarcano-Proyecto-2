@@ -8,6 +8,6 @@ package Objects;
  *
  * @author cdmar
  */
-public class character {
+public class Character {
     
 }

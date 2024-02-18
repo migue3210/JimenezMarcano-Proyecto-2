@@ -8,6 +8,6 @@ package Objects;
  *
  * @author cdmar
  */
-public class admin {
+public class Admin {
     
 }
