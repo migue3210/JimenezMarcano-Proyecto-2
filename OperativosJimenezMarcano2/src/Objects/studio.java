@@ -5,6 +5,7 @@
 package Objects;
 
 import static java.lang.Thread.sleep;
+import java.util.Random;
 import java.util.concurrent.Semaphore;
 import java.util.logging.Level;
 import java.util.logging.Logger;
@@ -13,25 +14,105 @@ import java.util.logging.Logger;
  * @author cdmarca
  */
 
-public class Studio { //The studio class contains all the information of each studio in the simulation, incluiding priority queues, the admin, and a shared IDlist
+public class Studio extends Thread { //The studio class contains all the information of each studio in the simulation, incluiding priority queues, the admin, and a shared IDlist
+    //Studio info section
+    private String studioName;
+    
     //Queue section
     private Queue prior1Queue;
     private Queue prior2Queue;
     private Queue prior3Queue;
     private Queue reinfQueue;
     private Admin admin;
-    //List Semaphore
-    private List globalIdList;
-    private Semaphore globalIdListSemaphore; 
+    
+    private int idCounter;
 
-    public Studio(Queue prior1Queue, Queue prior2Queue, Queue prior3Queue, Queue reinfQueue, Admin admin, List globalIdList) {
-        this.prior1Queue = prior1Queue;
-        this.prior2Queue = prior2Queue;
-        this.prior3Queue = prior3Queue;
-        this.reinfQueue = reinfQueue;
-        this.admin = admin;
-        this.globalIdList = globalIdList;
+    public Studio(String name) {
+        this.studioName = name;
+        this.prior1Queue = new Queue();
+        this.prior2Queue = new Queue();
+        this.prior3Queue = new Queue();
+        this.reinfQueue = new Queue();
+        this.admin = new Admin();
+        this.idCounter = 0;
     }
     
+    public StudioCharacter generateCharacter(){ 
+        /*
+        The process for generating a character:
+        SECTION 1: generates a unique id by concatenating the studio name and the idCounter, then adds 1 to the counter
+        SECTION 2:generates a random number between 0 and 100 for each statistic      
+        SECTION 3: The overall Quality of a character will be the sum of the stats that are considered quality stats
+        
+        overallQuality = 0  ; The character is deficient
+        overallQuality = 1  ; The character is average
+        overallQuality = 2 or 3 or 4 ; The character is exceptional   
+        SECTION 5: Returns the newly generated Character
+        */
+        
+        //Section 1
+        String id = getStudioName() + getIdCounter();  
+        setIdCounter(getIdCounter() + 1);
+        
+        //Section 2
+        Random random = new Random();
+        int randomNumber = random.nextInt(101);
+        int skillPoints = randomNumber;
+        
+        random = new Random();
+        randomNumber = random.nextInt(101);
+        int healthPoints = randomNumber;
+        
+        random = new Random();
+        randomNumber = random.nextInt(101);
+        int strengthPoints = randomNumber;
+        
+        random = new Random();
+        randomNumber = random.nextInt(101);
+        int agilityPoints = randomNumber;
+        
+        //Section 3
+        int overallQuality = 0;
+        if (skillPoints >=40) { overallQuality++;}   // 60% Chance of being skilled
+        if (healthPoints >= 30) { overallQuality++;} // 70% Chance of being healthy
+        if (strengthPoints >= 50) {overallQuality++;}    // 50% Chance of being strong
+        if (agilityPoints >= 60) {overallQuality++;}     // 40% Chance of being agile 
+        
+        StudioCharacter character = new StudioCharacter(id, skillPoints, healthPoints, strengthPoints, agilityPoints, overallQuality);
+        return character;
+    }
+
+
+    public String getStudioName() {
+        return studioName;
+    }
+
+    public Queue getPrior1Queue() {
+        return prior1Queue;
+    }
+
+    public Queue getPrior2Queue() {
+        return prior2Queue;
+    }
+
+    public Queue getPrior3Queue() {
+        return prior3Queue;
+    }
+
+    public Queue getReinfQueue() {
+        return reinfQueue;
+    }
+
+    public Admin getAdmin() {
+        return admin;
+    }
+
+    public int getIdCounter() {
+        return idCounter;
+    }
+
+    public void setIdCounter(int idCounter) {
+        this.idCounter = idCounter;
+    }
     
 }

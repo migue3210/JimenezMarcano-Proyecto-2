@@ -4,7 +4,7 @@
  */
 package operativosjimenezmarcano2;
 
-import Interface.BattleInterface;
+import Objects.*;
 
 /**
  *
@@ -16,7 +16,12 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        BattleInterface battleInterface = new BattleInterface();
+        
+        Studio studio = new Studio("CN");
+        StudioCharacter uwu = studio.generateCharacter();
+        uwu.printStatitics();
+        StudioCharacter uwu2 = studio.generateCharacter();
+        uwu2.printStatitics();
     }
     
 }
