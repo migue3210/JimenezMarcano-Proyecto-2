@@ -15,6 +15,7 @@ public class BattleInterface extends javax.swing.JFrame {
      */
     public BattleInterface() {
         initComponents();
+        this.setVisible(true);
     }
 
     /**
@@ -26,18 +27,34 @@ public class BattleInterface extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        vsLabel = new javax.swing.JLabel();
+        avatarPanel = new javax.swing.JPanel();
+        avatarLogo = new javax.swing.JLabel();
+        regularShowPanel = new javax.swing.JPanel();
+        regularShowLogo = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 1205, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 629, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        vsLabel.setFont(new java.awt.Font("Segoe UI", 3, 90)); // NOI18N
+        vsLabel.setText("VS");
+        getContentPane().add(vsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, -1, -1));
+
+        avatarPanel.setBackground(new java.awt.Color(255, 243, 207));
+        avatarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        avatarLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/Logo_de_Avatar_la_leyenda_de_Aang-420.png"))); // NOI18N
+        avatarPanel.add(avatarLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, -10, -1, -1));
+
+        getContentPane().add(avatarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 640));
+
+        regularShowPanel.setBackground(new java.awt.Color(83, 92, 145));
+        regularShowPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        regularShowLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/Regular_Show_Logo-450.png"))); // NOI18N
+        regularShowPanel.add(regularShowLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 20, -1, -1));
+
+        getContentPane().add(regularShowPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 620, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -78,5 +95,10 @@ public class BattleInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel avatarLogo;
+    private javax.swing.JPanel avatarPanel;
+    private javax.swing.JLabel regularShowLogo;
+    private javax.swing.JPanel regularShowPanel;
+    private javax.swing.JLabel vsLabel;
     // End of variables declaration//GEN-END:variables
 }
