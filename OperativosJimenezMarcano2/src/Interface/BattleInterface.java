@@ -32,6 +32,8 @@ public class BattleInterface extends javax.swing.JFrame {
         avatarPanel = new javax.swing.JPanel();
         avatarLogo = new javax.swing.JLabel();
         avatarVictories1 = new javax.swing.JLabel();
+        aiStatusLabel = new javax.swing.JLabel();
+        aiStatus = new javax.swing.JLabel();
         level1Label = new javax.swing.JLabel();
         level1Avatar = new javax.swing.JLabel();
         level2Label = new javax.swing.JLabel();
@@ -51,6 +53,9 @@ public class BattleInterface extends javax.swing.JFrame {
         level3RegularShow = new javax.swing.JLabel();
         reinforceLabel1 = new javax.swing.JLabel();
         reinforceRegularShow = new javax.swing.JLabel();
+        aiTimerLabel = new javax.swing.JLabel();
+        aiTimer = new javax.swing.JTextField();
+        jButton1 = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -72,6 +77,14 @@ public class BattleInterface extends javax.swing.JFrame {
         avatarVictories1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
         avatarVictories1.setText("0");
         avatarPanel.add(avatarVictories1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 130, -1));
+
+        aiStatusLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        aiStatusLabel.setText("Estatus de la IA:");
+        avatarPanel.add(aiStatusLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 150, -1, -1));
+
+        aiStatus.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        aiStatus.setText("Anunciando resultado");
+        avatarPanel.add(aiStatus, new org.netbeans.lib.awtextra.AbsoluteConstraints(160, 150, 320, -1));
 
         level1Label.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         level1Label.setText("Nivel 1");
@@ -123,54 +136,74 @@ public class BattleInterface extends javax.swing.JFrame {
         level1Label1.setForeground(new java.awt.Color(255, 255, 255));
         level1Label1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         level1Label1.setText("Nivel 1");
-        regularShowPanel.add(level1Label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 190, -1, -1));
+        regularShowPanel.add(level1Label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 190, -1, -1));
 
         level1RegularShow.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         level1RegularShow.setForeground(new java.awt.Color(255, 255, 255));
         level1RegularShow.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         level1RegularShow.setText("| id2 | id1 |");
-        regularShowPanel.add(level1RegularShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 220, -1, -1));
+        regularShowPanel.add(level1RegularShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 220, -1, -1));
 
         level2Label1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         level2Label1.setForeground(new java.awt.Color(255, 255, 255));
         level2Label1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         level2Label1.setText("Nivel 2");
-        regularShowPanel.add(level2Label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 250, -1, -1));
+        regularShowPanel.add(level2Label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 250, -1, -1));
 
         level2RegularShow.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         level2RegularShow.setForeground(new java.awt.Color(255, 255, 255));
         level2RegularShow.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         level2RegularShow.setText("| id2 | id1 |");
-        regularShowPanel.add(level2RegularShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 280, -1, -1));
+        regularShowPanel.add(level2RegularShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 280, -1, -1));
 
         level3Label1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         level3Label1.setForeground(new java.awt.Color(255, 255, 255));
         level3Label1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         level3Label1.setText("Nivel 3");
-        regularShowPanel.add(level3Label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(540, 310, -1, -1));
+        regularShowPanel.add(level3Label1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 310, -1, -1));
 
         level3RegularShow.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         level3RegularShow.setForeground(new java.awt.Color(255, 255, 255));
         level3RegularShow.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         level3RegularShow.setText("| id2 | id1 |");
-        regularShowPanel.add(level3RegularShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 340, -1, -1));
+        regularShowPanel.add(level3RegularShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 340, -1, -1));
 
         reinforceLabel1.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         reinforceLabel1.setForeground(new java.awt.Color(255, 255, 255));
         reinforceLabel1.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         reinforceLabel1.setText("Refuerzo");
-        regularShowPanel.add(reinforceLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 370, -1, -1));
+        regularShowPanel.add(reinforceLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 370, -1, -1));
 
         reinforceRegularShow.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         reinforceRegularShow.setForeground(new java.awt.Color(255, 255, 255));
         reinforceRegularShow.setHorizontalAlignment(javax.swing.SwingConstants.TRAILING);
         reinforceRegularShow.setText("| id2 | id1 |");
-        regularShowPanel.add(reinforceRegularShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 400, -1, -1));
+        regularShowPanel.add(reinforceRegularShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(510, 400, -1, -1));
+
+        aiTimerLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        aiTimerLabel.setForeground(new java.awt.Color(255, 255, 255));
+        aiTimerLabel.setText("Control de tiempo de trabajo de la IA:");
+        regularShowPanel.add(aiTimerLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 150, -1, -1));
+
+        aiTimer.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
+        regularShowPanel.add(aiTimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 120, -1));
+
+        jButton1.setText("Cambiar");
+        jButton1.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton1ActionPerformed(evt);
+            }
+        });
+        regularShowPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, -1));
 
         getContentPane().add(regularShowPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 620, 640));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+        // TODO add your handling code here:
+    }//GEN-LAST:event_jButton1ActionPerformed
 
     /**
      * @param args the command line arguments
@@ -208,9 +241,14 @@ public class BattleInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel aiStatus;
+    private javax.swing.JLabel aiStatusLabel;
+    private javax.swing.JTextField aiTimer;
+    private javax.swing.JLabel aiTimerLabel;
     private javax.swing.JLabel avatarLogo;
     private javax.swing.JPanel avatarPanel;
     private javax.swing.JLabel avatarVictories1;
+    private javax.swing.JButton jButton1;
     private javax.swing.JLabel level1Avatar;
     private javax.swing.JLabel level1Label;
     private javax.swing.JLabel level1Label1;
