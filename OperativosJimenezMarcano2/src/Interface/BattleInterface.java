@@ -120,7 +120,7 @@ public class BattleInterface extends javax.swing.JFrame {
         reinforceAvatar.setText("| id1 | id2 |");
         avatarPanel.add(reinforceAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
-        avatarFighter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/Avatar_Aang1.png"))); // NOI18N
+        avatarFighter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/Avatar/Avatar_Aang1.png"))); // NOI18N
         avatarPanel.add(avatarFighter, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, -1, -1));
 
         getContentPane().add(avatarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 640));
@@ -201,7 +201,7 @@ public class BattleInterface extends javax.swing.JFrame {
         });
         regularShowPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, -1));
 
-        regularShowFighter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/Mordecai.png"))); // NOI18N
+        regularShowFighter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/RegularShow/Mordecai.png"))); // NOI18N
         regularShowPanel.add(regularShowFighter, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
         getContentPane().add(regularShowPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 620, 640));
