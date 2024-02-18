@@ -38,7 +38,7 @@ public class Queue {
     public void printQueue() {
         Character nodo = getHead();
         while (nodo != null) {
-            System.out.print(" [" + nodo.getType() + "]");
+            System.out.print(" [" + nodo.getName() + "]");
             nodo = (Character) nodo.getNext();
         }
     }
@@ -58,8 +58,7 @@ public class Queue {
         length--;
     }
 
-    public void enqueue() {
-        Character nodo = new Character();
+    public void enqueue(Character nodo) {
 
         if (isEmpty()) {
             setHead(nodo);
@@ -71,5 +70,7 @@ public class Queue {
         }
         length++;
     }
+    
+    
 
 }
