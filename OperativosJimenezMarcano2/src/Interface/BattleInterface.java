@@ -42,6 +42,7 @@ public class BattleInterface extends javax.swing.JFrame {
         level3Avatar = new javax.swing.JLabel();
         reinforceLabel = new javax.swing.JLabel();
         reinforceAvatar = new javax.swing.JLabel();
+        avatarFighter = new javax.swing.JLabel();
         regularShowPanel = new javax.swing.JPanel();
         regularShowLogo = new javax.swing.JLabel();
         regularShowVictories = new javax.swing.JLabel();
@@ -56,6 +57,7 @@ public class BattleInterface extends javax.swing.JFrame {
         aiTimerLabel = new javax.swing.JLabel();
         aiTimer = new javax.swing.JTextField();
         jButton1 = new javax.swing.JButton();
+        regularShowFighter = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -117,6 +119,9 @@ public class BattleInterface extends javax.swing.JFrame {
         reinforceAvatar.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         reinforceAvatar.setText("| id1 | id2 |");
         avatarPanel.add(reinforceAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
+
+        avatarFighter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/Avatar_Aang1.png"))); // NOI18N
+        avatarPanel.add(avatarFighter, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, -1, -1));
 
         getContentPane().add(avatarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 640));
 
@@ -196,6 +201,9 @@ public class BattleInterface extends javax.swing.JFrame {
         });
         regularShowPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, -1));
 
+        regularShowFighter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/Mordecai.png"))); // NOI18N
+        regularShowPanel.add(regularShowFighter, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
+
         getContentPane().add(regularShowPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 620, 640));
 
         pack();
@@ -245,6 +253,7 @@ public class BattleInterface extends javax.swing.JFrame {
     private javax.swing.JLabel aiStatusLabel;
     private javax.swing.JTextField aiTimer;
     private javax.swing.JLabel aiTimerLabel;
+    private javax.swing.JLabel avatarFighter;
     private javax.swing.JLabel avatarLogo;
     private javax.swing.JPanel avatarPanel;
     private javax.swing.JLabel avatarVictories1;
@@ -261,6 +270,7 @@ public class BattleInterface extends javax.swing.JFrame {
     private javax.swing.JLabel level3Label;
     private javax.swing.JLabel level3Label1;
     private javax.swing.JLabel level3RegularShow;
+    private javax.swing.JLabel regularShowFighter;
     private javax.swing.JLabel regularShowLogo;
     private javax.swing.JPanel regularShowPanel;
     private javax.swing.JLabel regularShowVictories;
