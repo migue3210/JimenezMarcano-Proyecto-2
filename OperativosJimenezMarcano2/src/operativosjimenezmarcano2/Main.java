@@ -35,7 +35,16 @@ public class Main {
 
         try {
             battleInterface.getRegularShowFighter().setIcon(new ImageIcon(ImageIO.read(new File(uwu.getImageCollection()))));
+            battleInterface.getHealthValueRegularShow().setText(String.valueOf(uwu.getHealthPoints()));
+            battleInterface.getAgilityValueRegularShow().setText(String.valueOf(uwu.getAgilityPoints()));
+            battleInterface.getStrengthValueRegularShow().setText(String.valueOf(uwu.getStrengthPoints()));
+            battleInterface.getSkillValueRegularShow().setText(String.valueOf(uwu.getSkillPoints()));
+
             battleInterface.getAvatarFighter().setIcon(new ImageIcon(ImageIO.read(new File(uwu2.getImageCollection()))));
+            battleInterface.getHealthValueAvatar().setText(String.valueOf(uwu2.getHealthPoints()));
+            battleInterface.getAgilityValueAvatar().setText(String.valueOf(uwu2.getAgilityPoints()));
+            battleInterface.getStrengthValueAvatar().setText(String.valueOf(uwu2.getStrengthPoints()));
+            battleInterface.getSkillValueAvatar().setText(String.valueOf(uwu2.getSkillPoints()));
 
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
