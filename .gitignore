@@ -1,3 +1,7 @@
-/OperativosJimenezMarcano2/nbproject/private/
-/OperativosJimenezMarcano2/build/
-/OperativosJimenezMarcano2/dist/
+nbproject/private/
+build/
+nbbuild/
+dist/
+nbdist/
+.nb-gradle/
+target/
