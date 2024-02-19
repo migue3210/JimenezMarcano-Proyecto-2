@@ -4,6 +4,9 @@
  */
 package Interface;
 
+import javax.swing.JLabel;
+import javax.swing.JTextField;
+
 /**
  *
  * @author Miguel
@@ -18,6 +21,7 @@ public class BattleInterface extends javax.swing.JFrame {
         this.setVisible(true);
     }
 
+
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -31,7 +35,7 @@ public class BattleInterface extends javax.swing.JFrame {
         vsLabel = new javax.swing.JLabel();
         avatarPanel = new javax.swing.JPanel();
         avatarLogo = new javax.swing.JLabel();
-        avatarVictories1 = new javax.swing.JLabel();
+        avatarVictories = new javax.swing.JLabel();
         aiStatusLabel = new javax.swing.JLabel();
         aiStatus = new javax.swing.JLabel();
         level1Label = new javax.swing.JLabel();
@@ -56,7 +60,7 @@ public class BattleInterface extends javax.swing.JFrame {
         reinforceRegularShow = new javax.swing.JLabel();
         aiTimerLabel = new javax.swing.JLabel();
         aiTimer = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        changeTimeButton = new javax.swing.JButton();
         regularShowFighter = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -76,9 +80,9 @@ public class BattleInterface extends javax.swing.JFrame {
         avatarLogo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/Logo_de_Avatar_la_leyenda_de_Aang-420.png"))); // NOI18N
         avatarPanel.add(avatarLogo, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 0, -1, -1));
 
-        avatarVictories1.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
-        avatarVictories1.setText("0");
-        avatarPanel.add(avatarVictories1, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 130, -1));
+        avatarVictories.setFont(new java.awt.Font("Segoe UI", 1, 18)); // NOI18N
+        avatarVictories.setText("0");
+        avatarPanel.add(avatarVictories, new org.netbeans.lib.awtextra.AbsoluteConstraints(480, 60, 130, -1));
 
         aiStatusLabel.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
         aiStatusLabel.setText("Estatus de la IA:");
@@ -193,13 +197,13 @@ public class BattleInterface extends javax.swing.JFrame {
         aiTimer.setFont(new java.awt.Font("Segoe UI", 0, 14)); // NOI18N
         regularShowPanel.add(aiTimer, new org.netbeans.lib.awtextra.AbsoluteConstraints(370, 150, 120, -1));
 
-        jButton1.setText("Cambiar");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        changeTimeButton.setText("Cambiar");
+        changeTimeButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton1ActionPerformed(evt);
+                changeTimeButtonActionPerformed(evt);
             }
         });
-        regularShowPanel.add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, -1));
+        regularShowPanel.add(changeTimeButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(500, 150, -1, -1));
 
         regularShowFighter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/RegularShow/Mordecai.png"))); // NOI18N
         regularShowPanel.add(regularShowFighter, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
@@ -209,9 +213,9 @@ public class BattleInterface extends javax.swing.JFrame {
         pack();
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
+    private void changeTimeButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_changeTimeButtonActionPerformed
         // TODO add your handling code here:
-    }//GEN-LAST:event_jButton1ActionPerformed
+    }//GEN-LAST:event_changeTimeButtonActionPerformed
 
     /**
      * @param args the command line arguments
@@ -256,8 +260,8 @@ public class BattleInterface extends javax.swing.JFrame {
     private javax.swing.JLabel avatarFighter;
     private javax.swing.JLabel avatarLogo;
     private javax.swing.JPanel avatarPanel;
-    private javax.swing.JLabel avatarVictories1;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JLabel avatarVictories;
+    private javax.swing.JButton changeTimeButton;
     private javax.swing.JLabel level1Avatar;
     private javax.swing.JLabel level1Label;
     private javax.swing.JLabel level1Label1;
@@ -281,4 +285,117 @@ public class BattleInterface extends javax.swing.JFrame {
     private javax.swing.JLabel victoriesLabel;
     private javax.swing.JLabel vsLabel;
     // End of variables declaration//GEN-END:variables
+
+        public JLabel getAiStatus() {
+        return aiStatus;
+    }
+
+    public void setAiStatus(JLabel aiStatus) {
+        this.aiStatus = aiStatus;
+    }
+
+    public JTextField getAiTimer() {
+        return aiTimer;
+    }
+
+    public void setAiTimer(JTextField aiTimer) {
+        this.aiTimer = aiTimer;
+    }
+
+    public JLabel getAvatarFighter() {
+        return avatarFighter;
+    }
+
+    public void setAvatarFighter(JLabel avatarFighter) {
+        this.avatarFighter = avatarFighter;
+    }
+
+    public JLabel getAvatarVictories() {
+        return avatarVictories;
+    }
+
+    public void setAvatarVictories(JLabel avatarVictories) {
+        this.avatarVictories = avatarVictories;
+    }
+
+    public JLabel getLevel1Avatar() {
+        return level1Avatar;
+    }
+
+    public void setLevel1Avatar(JLabel level1Avatar) {
+        this.level1Avatar = level1Avatar;
+    }
+
+    public JLabel getLevel1RegularShow() {
+        return level1RegularShow;
+    }
+
+    public void setLevel1RegularShow(JLabel level1RegularShow) {
+        this.level1RegularShow = level1RegularShow;
+    }
+
+    public JLabel getLevel2Avatar() {
+        return level2Avatar;
+    }
+
+    public void setLevel2Avatar(JLabel level2Avatar) {
+        this.level2Avatar = level2Avatar;
+    }
+
+    public JLabel getLevel2RegularShow() {
+        return level2RegularShow;
+    }
+
+    public void setLevel2RegularShow(JLabel level2RegularShow) {
+        this.level2RegularShow = level2RegularShow;
+    }
+
+    public JLabel getLevel3Avatar() {
+        return level3Avatar;
+    }
+
+    public void setLevel3Avatar(JLabel level3Avatar) {
+        this.level3Avatar = level3Avatar;
+    }
+
+    public JLabel getLevel3RegularShow() {
+        return level3RegularShow;
+    }
+
+    public void setLevel3RegularShow(JLabel level3RegularShow) {
+        this.level3RegularShow = level3RegularShow;
+    }
+
+    public JLabel getRegularShowFighter() {
+        return regularShowFighter;
+    }
+
+    public void setRegularShowFighter(JLabel regularShowFighter) {
+        this.regularShowFighter = regularShowFighter;
+    }
+
+    public JLabel getRegularShowVictories() {
+        return regularShowVictories;
+    }
+
+    public void setRegularShowVictories(JLabel regularShowVictories) {
+        this.regularShowVictories = regularShowVictories;
+    }
+
+    public JLabel getReinforceAvatar() {
+        return reinforceAvatar;
+    }
+
+    public void setReinforceAvatar(JLabel reinforceAvatar) {
+        this.reinforceAvatar = reinforceAvatar;
+    }
+
+    public JLabel getReinforceRegularShow() {
+        return reinforceRegularShow;
+    }
+
+    public void setReinforceRegularShow(JLabel reinforceRegularShow) {
+        this.reinforceRegularShow = reinforceRegularShow;
+    }
+
 }
