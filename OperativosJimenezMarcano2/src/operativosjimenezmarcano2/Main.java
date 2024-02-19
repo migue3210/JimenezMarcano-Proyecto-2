@@ -6,6 +6,12 @@ package operativosjimenezmarcano2;
 
 import Interface.BattleInterface;
 import Objects.*;
+import java.io.File;
+import java.io.IOException;
+import java.util.logging.Level;
+import java.util.logging.Logger;
+import javax.imageio.ImageIO;
+import javax.swing.ImageIcon;
 
 /**
  *
@@ -18,12 +24,22 @@ public class Main {
      */
     public static void main(String[] args) {
         BattleInterface battleInterface = new BattleInterface();
-        
-        Studio studio = new Studio("CN");
-        StudioCharacter uwu = studio.generateCharacter();
+
+        Studio cartoonNetwork = new Studio("CN");
+        Studio nickelodeon = new Studio("NK");
+
+        StudioCharacter uwu = cartoonNetwork.generateCharacter();
         uwu.printStatitics();
-        StudioCharacter uwu2 = studio.generateCharacter();
+        StudioCharacter uwu2 = nickelodeon.generateCharacter();
         uwu2.printStatitics();
+
+        try {
+            battleInterface.getRegularShowFighter().setIcon(new ImageIcon(ImageIO.read(new File(uwu.randomCharacter(uwu.getRegularShowCharacters())))));
+            battleInterface.getAvatarFighter().setIcon(new ImageIcon(ImageIO.read(new File(uwu2.randomCharacter(uwu2.getAvatarCharacters())))));
+
+        } catch (IOException ex) {
+            Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
+        }
     }
-    
+
 }

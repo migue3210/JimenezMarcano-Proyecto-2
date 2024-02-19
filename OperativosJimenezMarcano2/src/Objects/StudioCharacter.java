@@ -95,31 +95,6 @@ public class StudioCharacter {
         System.out.println("----------------------------");
     }
 
-    String[] avatarCharacters = {
-        "Appa_and_Momo1.png",
-        "Avatar_Aang.png",
-        "Iroh_smile1.png",
-        "Katara1.png",
-        "Sokka1.png",
-        "avatar_roku1.png",
-        "toph1.png",
-        "zuko1.png"
-    };
-
-    String[] regularShowCharacters = {
-        "Benson1.png",
-        "Mordecai.png",
-        "Musculoso1.png",
-        "Papaleta1.png",
-        "Rigby_del_Futuro1.png",
-        "Skips1.png",
-        "Thomas1.png",
-        "fantasmano1.png",
-        "mordecai_grita_mucho1.png",
-        "mordo1.png",
-        "rigby1.png"
-    };
-
     public String randomCharacter(String[] images) {
         // Picking a random element from the array  
         Random random = new Random();
@@ -128,4 +103,38 @@ public class StudioCharacter {
         System.out.println(randomElement);
         return randomElement;
     }
+    
+//    What is below is for testing
+    String[] avatarCharacters = {
+        "src/Interface/Images/Avatar/Appa_and_Momo1.png",
+        "src/Interface/Images/Avatar/Avatar_Aang1.png",
+        "src/Interface/Images/Avatar/Iroh_smile1.png",
+        "src/Interface/Images/Avatar/Katara1.png",
+        "src/Interface/Images/Avatar/Sokka1.png",
+        "src/Interface/Images/Avatar/avatar_roku1.png",
+        "src/Interface/Images/Avatar/toph1.png",
+        "src/Interface/Images/Avatar/zuko1.png"
+    };
+
+    String[] regularShowCharacters = {
+        "src/Interface/Images/RegularShow/Benson1.png",
+        "src/Interface/Images/RegularShow/Mordecai.png",
+        "src/Interface/Images/RegularShow/Musculoso1.png",
+        "src/Interface/Images/RegularShow/Papaleta1.png",
+        "src/Interface/Images/RegularShow/Rigby_del_Futuro1.png",
+        "src/Interface/Images/RegularShow/Skips1.png",
+        "src/Interface/Images/RegularShow/Thomas1.png",
+        "src/Interface/Images/RegularShow/fantasmano1.png",
+        "src/Interface/Images/RegularShow/mordecai_grita_mucho1.png",
+        "src/Interface/Images/RegularShow/mordo1.png",
+        "src/Interface/Images/RegularShow/rigby1.png"
+    };
+
+    public String[] getAvatarCharacters() {
+        return avatarCharacters;
+    }
+
+    public String[] getRegularShowCharacters() {
+        return regularShowCharacters;
+    }   
 }
