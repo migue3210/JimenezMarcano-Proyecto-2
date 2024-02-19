@@ -4,11 +4,14 @@
  */
 package Objects;
 
+import java.util.Random;
+
 /**
  *
  * @author cdmar
  */
 public class StudioCharacter {
+
     //Characters will also work as nodes on queues, so they will have a next attribute
     private StudioCharacter next;
     //Unique ID
@@ -16,7 +19,7 @@ public class StudioCharacter {
 
     //Cicle counter
     private int counter;
-    
+
     //Character stats they will always stay between 0 and 100
     private int skillPoints;
     private int healthPoints;
@@ -25,7 +28,6 @@ public class StudioCharacter {
     //Character quality Booleans depending on the level of each stat, it will qualify as "quality" or not, the requirements for the stat to be quality varies for each stat
     private int overallQuality; //
 
-    
     public StudioCharacter(String id, int skillPoints, int healthPoints, int strengthPoints, int agilityPoints, int overallQuality) {
         this.id = id;
         this.next = null;
@@ -34,11 +36,9 @@ public class StudioCharacter {
         this.healthPoints = healthPoints;
         this.strengthPoints = strengthPoints;
         this.agilityPoints = agilityPoints;
- 
+
         this.overallQuality = overallQuality;
     }
-    
-
 
     public StudioCharacter getNext() {
         return next;
@@ -83,7 +83,8 @@ public class StudioCharacter {
     public void setOverallQuality(int overallQuality) {
         this.overallQuality = overallQuality;
     }
-    public void printStatitics(){
+
+    public void printStatitics() {
         System.out.println("----------------------------");
         System.out.println("Id: " + getId());
         System.out.println("SkillPoints: " + getSkillPoints());
@@ -92,5 +93,39 @@ public class StudioCharacter {
         System.out.println("AgilityPoints: " + getAgilityPoints());
         System.out.println("Overall Quality: " + getOverallQuality());
         System.out.println("----------------------------");
+    }
+
+    String[] avatarCharacters = {
+        "Appa_and_Momo1.png",
+        "Avatar_Aang.png",
+        "Iroh_smile1.png",
+        "Katara1.png",
+        "Sokka1.png",
+        "avatar_roku1.png",
+        "toph1.png",
+        "zuko1.png"
+    };
+
+    String[] regularShowCharacters = {
+        "Benson1.png",
+        "Mordecai.png",
+        "Musculoso1.png",
+        "Papaleta1.png",
+        "Rigby_del_Futuro1.png",
+        "Skips1.png",
+        "Thomas1.png",
+        "fantasmano1.png",
+        "mordecai_grita_mucho1.png",
+        "mordo1.png",
+        "rigby1.png"
+    };
+
+    public String randomCharacter(String[] images) {
+        // Picking a random element from the array  
+        Random random = new Random();
+        String randomElement = images[random.nextInt(images.length)];
+
+        System.out.println(randomElement);
+        return randomElement;
     }
 }
