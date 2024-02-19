@@ -47,6 +47,14 @@ public class BattleInterface extends javax.swing.JFrame {
         reinforceLabel = new javax.swing.JLabel();
         reinforceAvatar = new javax.swing.JLabel();
         avatarFighter = new javax.swing.JLabel();
+        skillIcon = new javax.swing.JLabel();
+        skillValueAvatar = new javax.swing.JLabel();
+        heartIcon = new javax.swing.JLabel();
+        healthValueAvatar = new javax.swing.JLabel();
+        strengthIcon = new javax.swing.JLabel();
+        strengthValueAvatar = new javax.swing.JLabel();
+        agilityIcon = new javax.swing.JLabel();
+        agilityValueAvatar = new javax.swing.JLabel();
         regularShowPanel = new javax.swing.JPanel();
         regularShowLogo = new javax.swing.JLabel();
         regularShowVictories = new javax.swing.JLabel();
@@ -62,6 +70,14 @@ public class BattleInterface extends javax.swing.JFrame {
         aiTimer = new javax.swing.JTextField();
         changeTimeButton = new javax.swing.JButton();
         regularShowFighter = new javax.swing.JLabel();
+        heartIcon1 = new javax.swing.JLabel();
+        agilityValueRegularShow = new javax.swing.JLabel();
+        agilityIcon1 = new javax.swing.JLabel();
+        healthValueRegularShow = new javax.swing.JLabel();
+        strengthIcon1 = new javax.swing.JLabel();
+        strengthValueRegularShow = new javax.swing.JLabel();
+        skillIcon1 = new javax.swing.JLabel();
+        skillValueRegularShow = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -125,9 +141,38 @@ public class BattleInterface extends javax.swing.JFrame {
         avatarPanel.add(reinforceAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(40, 410, -1, -1));
 
         avatarFighter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/Avatar/Avatar_Aang1.png"))); // NOI18N
-        avatarPanel.add(avatarFighter, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, -1, -1));
+        avatarFighter.setVerticalAlignment(javax.swing.SwingConstants.TOP);
+        avatarPanel.add(avatarFighter, new org.netbeans.lib.awtextra.AbsoluteConstraints(360, 230, -1, 280));
 
-        getContentPane().add(avatarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 640));
+        skillIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/skill1.png"))); // NOI18N
+        avatarPanel.add(skillIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 560, -1, -1));
+
+        skillValueAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        skillValueAvatar.setText("0");
+        avatarPanel.add(skillValueAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(310, 600, 50, -1));
+
+        heartIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/heartIcon1.png"))); // NOI18N
+        avatarPanel.add(heartIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 560, -1, -1));
+
+        healthValueAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        healthValueAvatar.setText("0");
+        avatarPanel.add(healthValueAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 600, 50, -1));
+
+        strengthIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/weight1.png"))); // NOI18N
+        avatarPanel.add(strengthIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(460, 560, -1, -1));
+
+        strengthValueAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        strengthValueAvatar.setText("0");
+        avatarPanel.add(strengthValueAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(450, 600, 50, -1));
+
+        agilityIcon.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/agility1.png"))); // NOI18N
+        avatarPanel.add(agilityIcon, new org.netbeans.lib.awtextra.AbsoluteConstraints(530, 560, -1, -1));
+
+        agilityValueAvatar.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        agilityValueAvatar.setText("0");
+        avatarPanel.add(agilityValueAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(520, 600, 50, -1));
+
+        getContentPane().add(avatarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 680));
 
         regularShowPanel.setBackground(new java.awt.Color(83, 92, 145));
         regularShowPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -208,7 +253,35 @@ public class BattleInterface extends javax.swing.JFrame {
         regularShowFighter.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/RegularShow/Mordecai.png"))); // NOI18N
         regularShowPanel.add(regularShowFighter, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 220, -1, -1));
 
-        getContentPane().add(regularShowPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 620, 640));
+        heartIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/heartIcon1.png"))); // NOI18N
+        regularShowPanel.add(heartIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 560, -1, -1));
+
+        agilityValueRegularShow.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        agilityValueRegularShow.setText("0");
+        regularShowPanel.add(agilityValueRegularShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(260, 600, 50, -1));
+
+        agilityIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/agility1.png"))); // NOI18N
+        regularShowPanel.add(agilityIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(270, 560, -1, -1));
+
+        healthValueRegularShow.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        healthValueRegularShow.setText("0");
+        regularShowPanel.add(healthValueRegularShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(120, 600, 50, -1));
+
+        strengthIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/weight1.png"))); // NOI18N
+        regularShowPanel.add(strengthIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 560, -1, -1));
+
+        strengthValueRegularShow.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        strengthValueRegularShow.setText("0");
+        regularShowPanel.add(strengthValueRegularShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(190, 600, 50, -1));
+
+        skillIcon1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Interface/Images/skill1.png"))); // NOI18N
+        regularShowPanel.add(skillIcon1, new org.netbeans.lib.awtextra.AbsoluteConstraints(60, 560, -1, -1));
+
+        skillValueRegularShow.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        skillValueRegularShow.setText("0");
+        regularShowPanel.add(skillValueRegularShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(50, 600, 50, -1));
+
+        getContentPane().add(regularShowPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 620, 680));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -253,6 +326,10 @@ public class BattleInterface extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JLabel agilityIcon;
+    private javax.swing.JLabel agilityIcon1;
+    private javax.swing.JLabel agilityValueAvatar;
+    private javax.swing.JLabel agilityValueRegularShow;
     private javax.swing.JLabel aiStatus;
     private javax.swing.JLabel aiStatusLabel;
     private javax.swing.JTextField aiTimer;
@@ -262,6 +339,10 @@ public class BattleInterface extends javax.swing.JFrame {
     private javax.swing.JPanel avatarPanel;
     private javax.swing.JLabel avatarVictories;
     private javax.swing.JButton changeTimeButton;
+    private javax.swing.JLabel healthValueAvatar;
+    private javax.swing.JLabel healthValueRegularShow;
+    private javax.swing.JLabel heartIcon;
+    private javax.swing.JLabel heartIcon1;
     private javax.swing.JLabel level1Avatar;
     private javax.swing.JLabel level1Label;
     private javax.swing.JLabel level1Label1;
@@ -282,6 +363,14 @@ public class BattleInterface extends javax.swing.JFrame {
     private javax.swing.JLabel reinforceLabel;
     private javax.swing.JLabel reinforceLabel1;
     private javax.swing.JLabel reinforceRegularShow;
+    private javax.swing.JLabel skillIcon;
+    private javax.swing.JLabel skillIcon1;
+    private javax.swing.JLabel skillValueAvatar;
+    private javax.swing.JLabel skillValueRegularShow;
+    private javax.swing.JLabel strengthIcon;
+    private javax.swing.JLabel strengthIcon1;
+    private javax.swing.JLabel strengthValueAvatar;
+    private javax.swing.JLabel strengthValueRegularShow;
     private javax.swing.JLabel victoriesLabel;
     private javax.swing.JLabel vsLabel;
     // End of variables declaration//GEN-END:variables
