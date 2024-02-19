@@ -35,6 +35,7 @@ public class Simulation extends Thread{
             System.out.println("-------Game ended--------"); //If no characters were found in one studio, then the game will end
             break;
         }else{
+            
             StudioCharacter[] chosenCharacters = getAdmin().chooseCharactersBattle();
 
             StudioCharacter character1 = chosenCharacters[0]; //Studio 1 Character

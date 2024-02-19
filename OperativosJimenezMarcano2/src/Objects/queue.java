@@ -6,88 +6,104 @@ package Objects;
  * @author cdmar
  */
 public class Queue {
-
-    private int length;
     private StudioCharacter head;
+    private StudioCharacter tail;
+    private int size;
 
     public Queue() {
-        this.length = 0;
         this.head = null;
+        this.tail = null;
+        this.size = 0;
+    }
+
+    public StudioCharacter getHead() {
+        return head;
     }
 
     public void setHead(StudioCharacter head) {
         this.head = head;
     }
 
-    public StudioCharacter getHead() {
-        return head;
-    }
-    
-    public StudioCharacter getLast(){
-        StudioCharacter pointer = getHead();
-        if (pointer == null) {return pointer;}
-        
-        while (pointer.getNext() != null){
-            pointer = (StudioCharacter) pointer.getNext();
-        }
-        return pointer;
-    }
-    
-    public boolean isEmpty() {
-        return getHead() == null;
+    public StudioCharacter getTail() {
+        return tail;
     }
 
-    public void printQueue() {
-        StudioCharacter nodo = getHead();
-        while (nodo != null) {
-            System.out.print(" [" + nodo.getId() + "]");
-            nodo = (StudioCharacter) nodo.getNext();
-        }
+    public void setTail(StudioCharacter tail) {
+        this.tail = tail;
+    }
+
+    public int getSize() {
+        return size;
+    }
+
+    public void setSize(int size) {
+        this.size = size;
     }
 
     
-
-    public StudioCharacter dequeue() {
-        StudioCharacter pointer = null;
-        if (isEmpty()){
-            System.out.println("The queue is empty");
-            return pointer;
-        }else{
-            if (length == 1){ //Where there is only the head in the queue
-                pointer = getHead();
-                pointer.setNext(null);
-                setHead(null);
-                
-            }else{
-                pointer = getHead();
-                while (pointer.getNext() != getLast()){
-
-                    pointer = (StudioCharacter) pointer.getNext();
-                }
-                pointer.setNext(null); 
-            }
-        }
-        length--;
-        return pointer;
-    }
-
-    public void enqueue(StudioCharacter nodo) {
+    public void enqueue(StudioCharacter element) {
 
         if (isEmpty()) {
-            setHead(nodo);
-
-        }else {
-            nodo.setNext(getHead());
-            setHead(nodo);
-
+            setTail(element);
+            setHead(element);
+        } else {
+            StudioCharacter pointer = getTail();
+            pointer.setNext(element);
+            setTail(element);
         }
-        length++;
+        size++;
     }
 
-    public int getLength() {
-        return length;
+  /*
+    public StudioCharacter dequeue() {
+        if(isEmpty()) {
+            System.out.println("The queue is empty");
+        } else {
+            StudioCharacter pointerReturn = getTail();
+            StudioCharacter pointer = getHead();
+            setHead((StudioCharacter) pointer.getNext());
+            pointer.setNext(null);
+            if (getHead() == null) {
+                setTail(null);
+            }
+            size--;
+            return pointerReturn;
+        }
+        return null;
+    }*/
+
+
+    public StudioCharacter dequeue() {
+        if(isEmpty()) {
+            System.out.println("The queue is empty");
+        } else {
+            StudioCharacter pointer = getHead();
+            setHead((StudioCharacter) pointer.getNext());
+            pointer.setNext(null);
+            if (getHead() == null) {
+                setTail(null);
+            }
+            size--;
+            return pointer;
+        }
+        return null;
+    }
+
+
+    public boolean isEmpty() {
+        return getHead() == null && getTail() == null;
+    }
+
+
+    public void printQueue() {
+        StudioCharacter pointer = getHead();
+        while (pointer != null) {
+            System.out.print("[ "+pointer.getId()+" ]");
+            pointer = (StudioCharacter) pointer.getNext();
+        }
     }
     
     
-
+    
+    
 }

@@ -28,25 +28,26 @@ public class Admin {
         if (character1.getOverallQuality() == 1) {
             studio1.getPrior3Queue().enqueue(character1);
             //System.out.println("Character " + character1.getId() + "has been added to studio1 prior3 queue");
-        }
-        if (character2.getOverallQuality() == 1) {
-            studio2.getPrior3Queue().enqueue(character2);
-            //System.out.println("Character " + character2.getId() + "has been added to studio2 prior3 queue");
-        }
+        }   
         if (character1.getOverallQuality() == 2) {
             studio1.getPrior2Queue().enqueue(character1);
             //System.out.println("Character " + character1.getId() + "has been added to studio1 prior2 queue");
-        }
-        if (character2.getOverallQuality() == 2) {
-            studio2.getPrior2Queue().enqueue(character2);
-            //System.out.println("Character " + character2.getId() + "has been added to studio2 prior2 queue");
         }
         if (character1.getOverallQuality() == 3) {
             studio1.getPrior1Queue().enqueue(character1);
             //System.out.println("Character " + character1.getId() + "has been added to studio1 prior1 queue");
         }
+        if (character2.getOverallQuality() == 1) {
+            studio2.getPrior3Queue().enqueue(character2);
+            //System.out.println("Character " + character2.getId() + "has been added to studio2 prior3 queue");
+        }
+        if (character2.getOverallQuality() == 2) {
+            studio2.getPrior2Queue().enqueue(character2);
+            //System.out.println("Character " + character2.getId() + "has been added to studio2 prior2 queue");
+        }
+        
         if (character2.getOverallQuality() == 3) {
-            studio1.getPrior1Queue().enqueue(character2);
+            studio2.getPrior1Queue().enqueue(character2);
             //System.out.println("Character " + character2.getId() + "has been added to studio2 prior1 queue");
         }
         updateReviewCycle();
@@ -73,9 +74,14 @@ public class Admin {
         
         if (!studio1.getPrior1Queue().isEmpty()) {
            
-            
+            //System.out.println("");
+            //studio1.getPrior1Queue().printQueue();
+            //System.out.println("---------");
             character1 = studio1.getPrior1Queue().dequeue();
-            
+            //System.out.println("Caracter: " + character1.getId());
+            //System.out.println("----------");
+            //studio1.getPrior1Queue().printQueue();
+            //System.out.println("*-*-*-*-*-*-*-");
         }else{ // The priority 1 queue was empty, checks priority 2 queue
             
             if(!studio1.getPrior2Queue().isEmpty()){
@@ -137,17 +143,20 @@ public class Admin {
     }
     
     public void tieEscenario(StudioCharacter character1, StudioCharacter character2){
+        //System.out.println("Caracter: " + character1.getId());
+     //studio1.getPrior1Queue().printQueue();
+     
     studio1.getPrior1Queue().enqueue(character1);
     studio2.getPrior1Queue().enqueue(character2);
         System.out.println("The character " + character1.getId() + " has been added to studio1 priority 1 queue");
         System.out.println("The character " + character2.getId() + " has been added to studio2 priority 1 queue");
-        System.out.println(studio1.getPrior1Queue().getLength());
-    studio1.getPrior1Queue().printQueue();
+    //System.out.println(studio1.getPrior1Queue().getLength());
+    //studio1.getPrior1Queue().printQueue();
    
     }
     
     public void canceledCombatEscenario(StudioCharacter character1, StudioCharacter character2){
-       studio1.getReinfQueue().enqueue(character1);
+        studio1.getReinfQueue().enqueue(character1);
         studio2.getReinfQueue().enqueue(character2);
         System.out.println("The character " + character1.getId() + " has been added to studio1 reinforcement queue");
         System.out.println("The character " + character2.getId() + " has been added to studio2 reinforcement queue"); 
