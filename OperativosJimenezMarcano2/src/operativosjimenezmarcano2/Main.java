@@ -34,8 +34,8 @@ public class Main {
         uwu2.printStatitics();
 
         try {
-            battleInterface.getRegularShowFighter().setIcon(new ImageIcon(ImageIO.read(new File(uwu.randomCharacter(uwu.getRegularShowCharacters())))));
-            battleInterface.getAvatarFighter().setIcon(new ImageIcon(ImageIO.read(new File(uwu2.randomCharacter(uwu2.getAvatarCharacters())))));
+            battleInterface.getRegularShowFighter().setIcon(new ImageIcon(ImageIO.read(new File(uwu.getImageCollection()))));
+            battleInterface.getAvatarFighter().setIcon(new ImageIcon(ImageIO.read(new File(uwu2.getImageCollection()))));
 
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);

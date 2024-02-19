@@ -27,8 +27,11 @@ public class StudioCharacter {
     private int agilityPoints;
     //Character quality Booleans depending on the level of each stat, it will qualify as "quality" or not, the requirements for the stat to be quality varies for each stat
     private int overallQuality; //
+    
+    // Path of the character image
+    private String imageCollection;
 
-    public StudioCharacter(String id, int skillPoints, int healthPoints, int strengthPoints, int agilityPoints, int overallQuality) {
+    public StudioCharacter(String id, int skillPoints, int healthPoints, int strengthPoints, int agilityPoints, int overallQuality, String imageCollection) {
         this.id = id;
         this.next = null;
         this.counter = 0;
@@ -38,6 +41,8 @@ public class StudioCharacter {
         this.agilityPoints = agilityPoints;
 
         this.overallQuality = overallQuality;
+        
+        this.imageCollection = randomCharacter(imageCollection);
     }
 
     public StudioCharacter getNext() {
@@ -84,6 +89,14 @@ public class StudioCharacter {
         this.overallQuality = overallQuality;
     }
 
+    public String getImageCollection() {
+        return imageCollection;
+    }
+
+    public void setImageCollection(String imageCollection) {
+        this.imageCollection = imageCollection;
+    }
+
     public void printStatitics() {
         System.out.println("----------------------------");
         System.out.println("Id: " + getId());
@@ -95,10 +108,17 @@ public class StudioCharacter {
         System.out.println("----------------------------");
     }
 
-    public String randomCharacter(String[] images) {
+    private String randomCharacter(String images) {
+        String[] array = {};
+        if ("NK".equals(images)) {
+            array = avatarCharacters;
+        }else if ("CN".equals(images)) {
+            array = regularShowCharacters;
+        }
+        
         // Picking a random element from the array  
         Random random = new Random();
-        String randomElement = images[random.nextInt(images.length)];
+        String randomElement = array[random.nextInt(array.length)];
 
         System.out.println(randomElement);
         return randomElement;
@@ -128,13 +148,5 @@ public class StudioCharacter {
         "src/Interface/Images/RegularShow/mordecai_grita_mucho1.png",
         "src/Interface/Images/RegularShow/mordo1.png",
         "src/Interface/Images/RegularShow/rigby1.png"
-    };
-
-    public String[] getAvatarCharacters() {
-        return avatarCharacters;
-    }
-
-    public String[] getRegularShowCharacters() {
-        return regularShowCharacters;
-    }   
+    };   
 }

@@ -81,7 +81,9 @@ public class Studio extends Thread { //The studio class contains all the informa
         if (overallQuality  == 4) {overallQuality = 3;} //The character is Exceptional
         if (overallQuality  == 0) {overallQuality = 1;} // The character is deficient
         
-        StudioCharacter character = new StudioCharacter(id, skillPoints, healthPoints, strengthPoints, agilityPoints, overallQuality);
+        String imageCollection = getStudioName();
+        
+        StudioCharacter character = new StudioCharacter(id, skillPoints, healthPoints, strengthPoints, agilityPoints, overallQuality, imageCollection);
         return character;
     }
 
