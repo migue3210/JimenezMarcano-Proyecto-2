@@ -82,7 +82,7 @@ public class Studio extends Thread { //The studio class contains all the informa
         if (overallQuality  == 0) {overallQuality = 1;} // The character is deficient
         
         String imageCollection = getStudioName();
-        
+        //Section 4
         StudioCharacter character = new StudioCharacter(id, skillPoints, healthPoints, strengthPoints, agilityPoints, overallQuality, imageCollection);
         return character;
     }
