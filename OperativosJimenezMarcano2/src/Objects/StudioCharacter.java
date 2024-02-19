@@ -27,9 +27,11 @@ public class StudioCharacter {
     private int agilityPoints;
     //Character quality Booleans depending on the level of each stat, it will qualify as "quality" or not, the requirements for the stat to be quality varies for each stat
     private int overallQuality; //
-    
+
     // Path of the character image
-    private String imageCollection;
+    private String[] imageCollection;
+
+    private String name;
 
     public StudioCharacter(String id, int skillPoints, int healthPoints, int strengthPoints, int agilityPoints, int overallQuality, String imageCollection) {
         this.id = id;
@@ -41,8 +43,10 @@ public class StudioCharacter {
         this.agilityPoints = agilityPoints;
 
         this.overallQuality = overallQuality;
-        
+
         this.imageCollection = randomCharacter(imageCollection);
+
+        this.name = this.imageCollection[1];
     }
 
     public StudioCharacter getNext() {
@@ -89,13 +93,23 @@ public class StudioCharacter {
         this.overallQuality = overallQuality;
     }
 
-    public String getImageCollection() {
+    public String[] getImageCollection() {
         return imageCollection;
     }
 
-    public void setImageCollection(String imageCollection) {
+    public void setImageCollection(String[] imageCollection) {
         this.imageCollection = imageCollection;
     }
+
+    public String getName() {
+        return name;
+    }
+
+    public void setName(String name) {
+        this.name = name;
+    }
+    
+    
 
     public void printStatitics() {
         System.out.println("----------------------------");
@@ -108,45 +122,45 @@ public class StudioCharacter {
         System.out.println("----------------------------");
     }
 
-    private String randomCharacter(String images) {
-        String[] array = {};
+    private String[] randomCharacter(String images) {
+        String[][] array = {};
         if ("NK".equals(images)) {
             array = avatarCharacters;
-        }else if ("CN".equals(images)) {
+        } else if ("CN".equals(images)) {
             array = regularShowCharacters;
         }
-        
+
         // Picking a random element from the array  
         Random random = new Random();
-        String randomElement = array[random.nextInt(array.length)];
+        String[] randomElement = array[random.nextInt(array.length)];
 
-        System.out.println(randomElement);
+        System.out.println(randomElement[0] + randomElement[1]);
         return randomElement;
     }
-    
+
 //    What is below is for testing
-    String[] avatarCharacters = {
-        "src/Interface/Images/Avatar/Appa_and_Momo1.png",
-        "src/Interface/Images/Avatar/Avatar_Aang1.png",
-        "src/Interface/Images/Avatar/Iroh_smile1.png",
-        "src/Interface/Images/Avatar/Katara1.png",
-        "src/Interface/Images/Avatar/Sokka1.png",
-        "src/Interface/Images/Avatar/avatar_roku1.png",
-        "src/Interface/Images/Avatar/toph1.png",
-        "src/Interface/Images/Avatar/zuko1.png"
+    String[][] avatarCharacters = {
+        {"src/Interface/Images/Avatar/Appa_and_Momo1.png", "Appa y Momo"},
+        {"src/Interface/Images/Avatar/Avatar_Aang1.png", "Aang"},
+        {"src/Interface/Images/Avatar/Iroh_smile1.png", "Iroh"},
+        {"src/Interface/Images/Avatar/Katara1.png", "Katara"},
+        {"src/Interface/Images/Avatar/Sokka1.png", "Sokka"},
+        {"src/Interface/Images/Avatar/avatar_roku1.png", "Roku"},
+        {"src/Interface/Images/Avatar/toph1.png", "Toph"},
+        {"src/Interface/Images/Avatar/zuko1.png", "Zukko"}
     };
 
-    String[] regularShowCharacters = {
-        "src/Interface/Images/RegularShow/Benson1.png",
-        "src/Interface/Images/RegularShow/Mordecai.png",
-        "src/Interface/Images/RegularShow/Musculoso1.png",
-        "src/Interface/Images/RegularShow/Papaleta1.png",
-        "src/Interface/Images/RegularShow/Rigby_del_Futuro1.png",
-        "src/Interface/Images/RegularShow/Skips1.png",
-        "src/Interface/Images/RegularShow/Thomas1.png",
-        "src/Interface/Images/RegularShow/fantasmano1.png",
-        "src/Interface/Images/RegularShow/mordecai_grita_mucho1.png",
-        "src/Interface/Images/RegularShow/mordo1.png",
-        "src/Interface/Images/RegularShow/rigby1.png"
-    };   
+    String[][] regularShowCharacters = {
+        {"src/Interface/Images/RegularShow/Benson1.png", "Benson"},
+        {"src/Interface/Images/RegularShow/Mordecai.png", "Mordecai"},
+        {"src/Interface/Images/RegularShow/Musculoso1.png", "Musculoso"},
+        {"src/Interface/Images/RegularShow/Papaleta1.png", "Papaleta"},
+        {"src/Interface/Images/RegularShow/Rigby_del_Futuro1.png", "Rigby del Futuro"},
+        {"src/Interface/Images/RegularShow/Skips1.png", "Skips"},
+        {"src/Interface/Images/RegularShow/Thomas1.png", "Thomas"},
+        {"src/Interface/Images/RegularShow/fantasmano1.png", "Fantasmano"},
+        {"src/Interface/Images/RegularShow/mordecai_grita_mucho1.png", "Mordecai"},
+        {"src/Interface/Images/RegularShow/mordo1.png", "Mordecai Yuca"},
+        {"src/Interface/Images/RegularShow/rigby1.png", "Rigby"}
+    };
 }

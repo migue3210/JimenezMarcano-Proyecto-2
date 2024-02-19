@@ -34,17 +34,19 @@ public class Main {
         uwu2.printStatitics();
 
         try {
-            battleInterface.getRegularShowFighter().setIcon(new ImageIcon(ImageIO.read(new File(uwu.getImageCollection()))));
+            battleInterface.getRegularShowFighter().setIcon(new ImageIcon(ImageIO.read(new File(uwu.getImageCollection()[0]))));
             battleInterface.getHealthValueRegularShow().setText(String.valueOf(uwu.getHealthPoints()));
             battleInterface.getAgilityValueRegularShow().setText(String.valueOf(uwu.getAgilityPoints()));
             battleInterface.getStrengthValueRegularShow().setText(String.valueOf(uwu.getStrengthPoints()));
             battleInterface.getSkillValueRegularShow().setText(String.valueOf(uwu.getSkillPoints()));
+            battleInterface.getCharacterNameRegularShow().setText(String.valueOf(uwu.getName()));
 
-            battleInterface.getAvatarFighter().setIcon(new ImageIcon(ImageIO.read(new File(uwu2.getImageCollection()))));
+            battleInterface.getAvatarFighter().setIcon(new ImageIcon(ImageIO.read(new File(uwu2.getImageCollection()[0]))));
             battleInterface.getHealthValueAvatar().setText(String.valueOf(uwu2.getHealthPoints()));
             battleInterface.getAgilityValueAvatar().setText(String.valueOf(uwu2.getAgilityPoints()));
             battleInterface.getStrengthValueAvatar().setText(String.valueOf(uwu2.getStrengthPoints()));
             battleInterface.getSkillValueAvatar().setText(String.valueOf(uwu2.getSkillPoints()));
+            battleInterface.getCharacterNameAvatar().setText(String.valueOf(uwu2.getName()));
 
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
