@@ -25,6 +25,8 @@ public class Queue {
     
     public StudioCharacter getLast(){
         StudioCharacter pointer = getHead();
+        if (pointer == null) {return pointer;}
+        
         while (pointer.getNext() != null){
             pointer = (StudioCharacter) pointer.getNext();
         }
@@ -45,17 +47,28 @@ public class Queue {
 
     
 
-    public void dequeue() {
+    public StudioCharacter dequeue() {
+        StudioCharacter pointer = null;
         if (isEmpty()){
             System.out.println("The queue is empty");
+            return pointer;
         }else{
-            StudioCharacter pointer = getHead();
-            while (pointer.getNext() != getLast()){
-                pointer = (StudioCharacter) pointer.getNext();
+            if (length == 1){ //Where there is only the head in the queue
+                pointer = getHead();
+                pointer.setNext(null);
+                setHead(null);
+                
+            }else{
+                pointer = getHead();
+                while (pointer.getNext() != getLast()){
+
+                    pointer = (StudioCharacter) pointer.getNext();
+                }
+                pointer.setNext(null); 
             }
-            pointer.setNext(null);                       
         }
         length--;
+        return pointer;
     }
 
     public void enqueue(StudioCharacter nodo) {
@@ -69,6 +82,10 @@ public class Queue {
 
         }
         length++;
+    }
+
+    public int getLength() {
+        return length;
     }
     
     

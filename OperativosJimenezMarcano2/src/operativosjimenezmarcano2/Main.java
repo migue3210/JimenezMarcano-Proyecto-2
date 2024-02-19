@@ -23,7 +23,7 @@ public class Main {
      * @param args the command line arguments
      */
     public static void main(String[] args) {
-        BattleInterface battleInterface = new BattleInterface();
+        /*BattleInterface battleInterface = new BattleInterface();
 
         Studio cartoonNetwork = new Studio("CN");
         Studio nickelodeon = new Studio("NK");
@@ -39,7 +39,10 @@ public class Main {
 
         } catch (IOException ex) {
             Logger.getLogger(Main.class.getName()).log(Level.SEVERE, null, ex);
-        }
+        }*/
+        Simulation simulation = new Simulation("CN", "NK", 2500);
+        simulation.start();
+        
     }
 
 }

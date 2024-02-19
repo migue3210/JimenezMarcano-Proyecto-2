@@ -42,7 +42,7 @@ public class StudioCharacter {
 
         this.overallQuality = overallQuality;
         
-        this.imageCollection = randomCharacter(imageCollection);
+        this.imageCollection = randomCharacter(imageCollection); 
     }
 
     public StudioCharacter getNext() {
@@ -120,7 +120,7 @@ public class StudioCharacter {
         Random random = new Random();
         String randomElement = array[random.nextInt(array.length)];
 
-        System.out.println(randomElement);
+        //System.out.println(randomElement);
         return randomElement;
     }
     
@@ -149,4 +149,8 @@ public class StudioCharacter {
         "src/Interface/Images/RegularShow/mordo1.png",
         "src/Interface/Images/RegularShow/rigby1.png"
     };   
+
+    public void setHealthPoints(int healthPoints) {
+        this.healthPoints = healthPoints;
+    }
 }
