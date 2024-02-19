@@ -23,8 +23,8 @@ public class Studio extends Thread { //The studio class contains all the informa
     private Queue prior2Queue;
     private Queue prior3Queue;
     private Queue reinfQueue;
-    private Admin admin;
     
+    //Counter for IDs
     private int idCounter;
 
     public Studio(String name) {
@@ -33,7 +33,6 @@ public class Studio extends Thread { //The studio class contains all the informa
         this.prior2Queue = new Queue();
         this.prior3Queue = new Queue();
         this.reinfQueue = new Queue();
-        this.admin = new Admin();
         this.idCounter = 0;
     }
     
@@ -44,10 +43,11 @@ public class Studio extends Thread { //The studio class contains all the informa
         SECTION 2:generates a random number between 0 and 100 for each statistic      
         SECTION 3: The overall Quality of a character will be the sum of the stats that are considered quality stats
         
-        overallQuality = 0  ; The character is deficient
-        overallQuality = 1  ; The character is average
-        overallQuality = 2 or 3 or 4 ; The character is exceptional   
-        SECTION 5: Returns the newly generated Character
+        overallQuality = 0 or 1  ; The character is deficient
+        overallQuality = 2  ; The character is average
+        overallQuality = 3 or 4 ; The character is exceptional   
+        at the end the overallQuality will be rounded to just 1, 2, or 3, so that it will be easier to read later
+        SECTION 4: Returns the newly generated Character
         */
         
         //Section 1
@@ -73,10 +73,13 @@ public class Studio extends Thread { //The studio class contains all the informa
         
         //Section 3
         int overallQuality = 0;
-        if (skillPoints >=40) { overallQuality++;}   // 60% Chance of being skilled
-        if (healthPoints >= 30) { overallQuality++;} // 70% Chance of being healthy
-        if (strengthPoints >= 50) {overallQuality++;}    // 50% Chance of being strong
-        if (agilityPoints >= 60) {overallQuality++;}     // 40% Chance of being agile 
+        if (skillPoints >40) { overallQuality++;}   // 60% Chance of being skilled
+        if (healthPoints > 30) { overallQuality++;} // 70% Chance of being healthy
+        if (strengthPoints > 50) {overallQuality++;}    // 50% Chance of being strong
+        if (agilityPoints > 60) {overallQuality++;}     // 40% Chance of being agile 
+        
+        if (overallQuality  == 4) {overallQuality = 3;} //The character is Exceptional
+        if (overallQuality  == 0) {overallQuality = 1;} // The character is deficient
         
         StudioCharacter character = new StudioCharacter(id, skillPoints, healthPoints, strengthPoints, agilityPoints, overallQuality);
         return character;
@@ -103,9 +106,6 @@ public class Studio extends Thread { //The studio class contains all the informa
         return reinfQueue;
     }
 
-    public Admin getAdmin() {
-        return admin;
-    }
 
     public int getIdCounter() {
         return idCounter;
