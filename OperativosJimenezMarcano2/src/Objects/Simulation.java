@@ -11,6 +11,7 @@ import java.util.logging.Level;
 import java.util.logging.Logger;
 import javax.imageio.ImageIO;
 import javax.swing.ImageIcon;
+import operativosjimenezmarcano2.Main;
 import static operativosjimenezmarcano2.Main.battleInterface;
 import static operativosjimenezmarcano2.Main.cartoonNetwork;
 import static operativosjimenezmarcano2.Main.nickelodeon;
@@ -38,7 +39,7 @@ public class Simulation extends Thread {
     }
 
     public void operate() {
-        
+
         while (true) {
             StudioCharacter[] chosenCharacters = getAdmin().chooseCharactersBattle();
             //Each cycle, the admin will start by choosing both characters that are going to battle
@@ -46,17 +47,6 @@ public class Simulation extends Thread {
                 System.out.println("-------Game ended--------"); //If no characters were found in one studio, then the game will end
                 break;
             } else {
-
-                int tenth = (int) (getBattleDuration()*0.10);
-                AI.setStatus("waiting");
-                try {
-                    sleep(1000);
-                } catch (InterruptedException ex) {
-                    Logger.getLogger(Simulation.class.getName()).log(Level.SEVERE, null, ex);
-                }
-                StudioCharacter character1 = chosenCharacters[0]; //Studio 1 Character
-                StudioCharacter character2 = chosenCharacters[1]; //Studio 2 character
-
                 battleInterface.getLevel1RegularShow().setText(cartoonNetwork.getPrior1Queue().printQueue());
                 battleInterface.getLevel2RegularShow().setText(cartoonNetwork.getPrior2Queue().printQueue());
                 battleInterface.getLevel3RegularShow().setText(cartoonNetwork.getPrior3Queue().printQueue());
@@ -66,7 +56,18 @@ public class Simulation extends Thread {
                 battleInterface.getLevel2Avatar().setText(nickelodeon.getPrior2Queue().printQueue());
                 battleInterface.getLevel3Avatar().setText(nickelodeon.getPrior3Queue().printQueue());
                 battleInterface.getReinforceAvatar().setText(nickelodeon.getReinfQueue().printQueue());
-                
+                int tenth = (int) (getBattleDuration() * 0.10);
+                AI.setStatus("waiting");
+                try {
+                    Main.battleInterface.getAiStatus().setText("Esperando");
+                    sleep(1000);
+                    Main.battleInterface.getResult().setText("");
+
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Simulation.class.getName()).log(Level.SEVERE, null, ex);
+                }
+                StudioCharacter character1 = chosenCharacters[0]; //Studio 1 Character
+                StudioCharacter character2 = chosenCharacters[1]; //Studio 2 character
 
                 try {
                     battleInterface.getRegularShowFighter().setIcon(new ImageIcon(ImageIO.read(new File(character1.getImageCollection()[0]))));
@@ -87,11 +88,16 @@ public class Simulation extends Thread {
                     Logger.getLogger(Simulation.class.getName()).log(Level.SEVERE, null, ex);
                 }
                 AI.setStatus("Processing results");
+                Main.battleInterface.getAiStatus().setText("Procesando");
+
                 AI.performBattle(character1, character2);
                 inanitionAvoider();
                 AI.setStatus("Announcing results");
                 try {
+                    Main.battleInterface.getAiStatus().setText("Anunciando resultados");
+
                     sleep(1000);
+
                 } catch (InterruptedException ex) {
                     Logger.getLogger(Simulation.class.getName()).log(Level.SEVERE, null, ex);
                 }
