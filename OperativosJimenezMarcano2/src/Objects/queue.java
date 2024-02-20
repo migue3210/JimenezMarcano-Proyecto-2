@@ -1,4 +1,3 @@
-
 package Objects;
 
 /**
@@ -6,6 +5,7 @@ package Objects;
  * @author cdmar
  */
 public class Queue {
+
     private StudioCharacter head;
     private StudioCharacter tail;
     private int size;
@@ -40,7 +40,6 @@ public class Queue {
         this.size = size;
     }
 
-    
     public void enqueue(StudioCharacter element) {
 
         if (isEmpty()) {
@@ -54,27 +53,26 @@ public class Queue {
         size++;
     }
 
-  /*
+    /*
+     * public StudioCharacter dequeue() {
+     * if(isEmpty()) {
+     * System.out.println("The queue is empty");
+     * } else {
+     * StudioCharacter pointerReturn = getTail();
+     * StudioCharacter pointer = getHead();
+     * setHead((StudioCharacter) pointer.getNext());
+     * pointer.setNext(null);
+     * if (getHead() == null) {
+     * setTail(null);
+     * }
+     * size--;
+     * return pointerReturn;
+     * }
+     * return null;
+     * }
+     */
     public StudioCharacter dequeue() {
-        if(isEmpty()) {
-            System.out.println("The queue is empty");
-        } else {
-            StudioCharacter pointerReturn = getTail();
-            StudioCharacter pointer = getHead();
-            setHead((StudioCharacter) pointer.getNext());
-            pointer.setNext(null);
-            if (getHead() == null) {
-                setTail(null);
-            }
-            size--;
-            return pointerReturn;
-        }
-        return null;
-    }*/
-
-
-    public StudioCharacter dequeue() {
-        if(isEmpty()) {
+        if (isEmpty()) {
             System.out.println("The queue is empty");
         } else {
             StudioCharacter pointer = getHead();
@@ -89,21 +87,22 @@ public class Queue {
         return null;
     }
 
-
     public boolean isEmpty() {
         return getHead() == null && getTail() == null;
     }
 
-
-    public void printQueue() {
+    public String printQueue() {
+        String queue = "";
         StudioCharacter pointer = getHead();
         while (pointer != null) {
-            System.out.print("[ "+pointer.getId()+" ]");
+
+            queue = queue + pointer.getId() + " | ";
+//            System.out.println(queue);
             pointer = (StudioCharacter) pointer.getNext();
         }
+        return "| "+queue;
     }
-    
-    
+
     public void deleteFromQueue(StudioCharacter elementToRemove) {
         if (isEmpty()) {
             System.out.println("Queue is empty. Cannot dequeue.");
@@ -142,7 +141,5 @@ public class Queue {
             System.out.println("Element " + elementToRemove.getId() + " not found in the queue.");
         }
     }
-    
-    
-    
+
 }
