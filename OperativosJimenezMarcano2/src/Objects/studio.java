@@ -117,4 +117,35 @@ public class Studio extends Thread { //The studio class contains all the informa
         this.idCounter = idCounter;
     }
     
+    public void queueInanitionUpdate(){
+        //Priority 3 queue
+        StudioCharacter pointer = getPrior3Queue().getHead();
+        StudioCharacter tempPointer = null;
+        while (pointer != null) {
+            pointer.setCounter(pointer.getCounter()+1);
+            if (pointer.getCounter() == 8){
+                tempPointer = pointer;
+                getPrior3Queue().deleteFromQueue(pointer);
+                getPrior2Queue().enqueue(tempPointer);
+                tempPointer.setCounter(0);
+            }
+            pointer = (StudioCharacter) pointer.getNext();
+        }
+        //Priority 2 queue
+        pointer = getPrior2Queue().getHead();
+        tempPointer = null;
+        while (pointer != null) {
+            pointer.setCounter(pointer.getCounter()+1);
+            if (pointer.getCounter() == 8){
+                tempPointer = pointer;
+                getPrior2Queue().deleteFromQueue(pointer);
+                getPrior1Queue().enqueue(tempPointer);
+                tempPointer.setCounter(0);
+            }
+            pointer = (StudioCharacter) pointer.getNext();
+        }
+        
+    }
 }
+
+

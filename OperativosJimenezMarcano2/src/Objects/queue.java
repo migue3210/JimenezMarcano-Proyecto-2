@@ -104,6 +104,45 @@ public class Queue {
     }
     
     
+    public void deleteFromQueue(StudioCharacter elementToRemove) {
+        if (isEmpty()) {
+            System.out.println("Queue is empty. Cannot dequeue.");
+            return;
+        }
+
+        // Si el elemento a eliminar está al frente de la cola
+        if (head.getId() == elementToRemove.getId()) {
+            head = head.getNext();
+            if (head == null) {
+                tail = null;
+            }
+            System.out.println("Element " + elementToRemove + " removed from the front of the queue.");
+            size--;
+            return;
+        }
+
+        // Buscar el elemento a eliminar en el resto de la cola
+        StudioCharacter current = head;
+        StudioCharacter previous = null;
+
+        while (current != null && current.getId() != elementToRemove.getId()) {
+            previous = current;
+            current = current.getNext();
+        }
+
+        // Si se encuentra el elemento, eliminarlo
+        if (current != null) {
+            previous.setNext(current.getNext());
+            if (current == tail) {
+                tail = previous;
+            }
+            System.out.println("Element " + elementToRemove.getId() + " removed from the queue.");
+            size--;
+        } else {
+            System.out.println("Element " + elementToRemove.getId() + " not found in the queue.");
+        }
+    }
+    
     
     
 }
