@@ -42,6 +42,7 @@ public class Simulation extends Thread{
             StudioCharacter character2 = chosenCharacters[1]; //Studio 2 character
 
             AI.performBattle(character1, character2);
+            inanitionAvoider();
             }
         }
     }
@@ -72,5 +73,10 @@ public class Simulation extends Thread{
 
     public Admin getAdmin() {
         return admin;
+    }
+    
+    public void inanitionAvoider(){
+        studio1.queueInanitionUpdate();
+        studio2.queueInanitionUpdate();
     }
 }
