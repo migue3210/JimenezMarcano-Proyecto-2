@@ -35,6 +35,7 @@ public class BattleInterface extends javax.swing.JFrame {
 
         victoriesLabel = new javax.swing.JLabel();
         vsLabel = new javax.swing.JLabel();
+        result = new javax.swing.JLabel();
         avatarPanel = new javax.swing.JPanel();
         avatarLogo = new javax.swing.JLabel();
         avatarVictories = new javax.swing.JLabel();
@@ -93,6 +94,11 @@ public class BattleInterface extends javax.swing.JFrame {
         vsLabel.setFont(new java.awt.Font("Segoe UI", 3, 90)); // NOI18N
         vsLabel.setText("VS");
         getContentPane().add(vsLabel, new org.netbeans.lib.awtextra.AbsoluteConstraints(550, 100, -1, -1));
+
+        result.setFont(new java.awt.Font("Segoe UI", 1, 14)); // NOI18N
+        result.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+        result.setText("Aang le metió el palo a Mordecai");
+        getContentPane().add(result, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 660, 1010, -1));
 
         avatarPanel.setBackground(new java.awt.Color(255, 243, 207));
         avatarPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -185,7 +191,7 @@ public class BattleInterface extends javax.swing.JFrame {
         characterNameAvatar.setText("Aang");
         avatarPanel.add(characterNameAvatar, new org.netbeans.lib.awtextra.AbsoluteConstraints(320, 530, 260, 30));
 
-        getContentPane().add(avatarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 680));
+        getContentPane().add(avatarPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 610, 740));
 
         regularShowPanel.setBackground(new java.awt.Color(83, 92, 145));
         regularShowPanel.setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -309,7 +315,7 @@ public class BattleInterface extends javax.swing.JFrame {
         characterNameRegularShow.setText("Mordecai");
         regularShowPanel.add(characterNameRegularShow, new org.netbeans.lib.awtextra.AbsoluteConstraints(30, 530, 280, 30));
 
-        getContentPane().add(regularShowPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 620, 680));
+        getContentPane().add(regularShowPanel, new org.netbeans.lib.awtextra.AbsoluteConstraints(610, 0, 620, 740));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
@@ -393,6 +399,16 @@ public class BattleInterface extends javax.swing.JFrame {
         this.healthValueRegularShow = healthValueRegularShow;
     }
 
+    public JLabel getResult() {
+        return result;
+    }
+
+    public void setResult(JLabel result) {
+        this.result = result;
+    }
+    
+    
+
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JLabel agilityIcon;
     private javax.swing.JLabel agilityIcon1;
@@ -433,6 +449,7 @@ public class BattleInterface extends javax.swing.JFrame {
     private javax.swing.JLabel reinforceLabel;
     private javax.swing.JLabel reinforceLabel1;
     private javax.swing.JLabel reinforceRegularShow;
+    private javax.swing.JLabel result;
     private javax.swing.JLabel skillIcon;
     private javax.swing.JLabel skillIcon1;
     private javax.swing.JLabel skillValueAvatar;
