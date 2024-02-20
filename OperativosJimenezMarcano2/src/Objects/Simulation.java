@@ -61,6 +61,7 @@ public class Simulation extends Thread {
                 battleInterface.getLevel2Avatar().setText(nickelodeon.getPrior2Queue().printQueue());
                 battleInterface.getLevel3Avatar().setText(nickelodeon.getPrior3Queue().printQueue());
                 battleInterface.getReinforceAvatar().setText(nickelodeon.getReinfQueue().printQueue());
+                
 
                 try {
                     battleInterface.getRegularShowFighter().setIcon(new ImageIcon(ImageIO.read(new File(character1.getImageCollection()[0]))));

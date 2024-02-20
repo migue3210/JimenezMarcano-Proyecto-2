@@ -57,6 +57,7 @@ public class ArtificialIntelligence extends Thread {
                         admin.winnerEscenario(character1, character2); //Sends admin the info with character1 as winner and character2 as loser
                         regularShowVictory++;
                         Main.battleInterface.getRegularShowVictories().setText(String.valueOf(regularShowVictory));
+                        Main.battleInterface.getResult().setText("El personaje " + character2.getId() + " murió de sobredosis, " + character1.getId() + " gana");
                         break;
                     }
                     character1.setHealthPoints(character1.getHealthPoints() - character2.getStrengthPoints());
@@ -68,6 +69,7 @@ public class ArtificialIntelligence extends Thread {
                         admin.winnerEscenario(character2, character1); //Sends admin the info with character2 as winner and character1 as loser
                         avatarVictory++;
                         Main.battleInterface.getAvatarVictories().setText(String.valueOf(avatarVictory));
+                        Main.battleInterface.getResult().setText("El peleador " + character1.getId() + " murió de miedo, " + character2.getId() + " gana");
                         break;
                     }
 
@@ -85,6 +87,7 @@ public class ArtificialIntelligence extends Thread {
                         admin.winnerEscenario(character2, character1); //Sends admin the info with character2 as winner and character1 as loser
                         avatarVictory++;
                         Main.battleInterface.getAvatarVictories().setText(String.valueOf(avatarVictory));
+                        Main.battleInterface.getResult().setText("El peleador " + character1.getId() + " se tiró por depresión, " + character2.getId() + " gana");
                         break;
                     }
 
@@ -97,6 +100,7 @@ public class ArtificialIntelligence extends Thread {
                         admin.winnerEscenario(character1, character2); //Sends admin the info with character1 as winner and character2 as loser
                         regularShowVictory++;
                         Main.battleInterface.getRegularShowVictories().setText(String.valueOf(regularShowVictory));
+                        Main.battleInterface.getResult().setText("El peleador " + character2.getId() + " escuchó Taylor Swift y murió, " + character1.getId() + " gana");
                         break;
                     }
 
@@ -106,10 +110,12 @@ public class ArtificialIntelligence extends Thread {
 
         if (40 < desition && desition <= 67) {  // 27% chance of a tie
             System.out.println("----THE FIGHT BETWEEN " + character1.getId() + " AND " + character2.getId() + " ENDED IN A TIE----");
+            Main.battleInterface.getResult().setText("----THE FIGHT BETWEEN " + character1.getId() + " AND " + character2.getId() + " ENDED IN A TIE----");
             admin.tieEscenario(character1, character2);
         }
         if (67 < desition && desition <= 100) {
             System.out.println("----THE FIGHT BETWEEN " + character1.getId() + " AND " + character2.getId() + " WAS CANCELLED, THEY WERE NOT READY FOR BATTLE----");
+            Main.battleInterface.getResult().setText("----THE FIGHT BETWEEN " + character1.getId() + " AND " + character2.getId() + " WAS CANCELLED, THEY WERE NOT READY FOR BATTLE----");
             admin.canceledCombatEscenario(character1, character2);
         }
 
