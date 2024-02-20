@@ -38,15 +38,16 @@ public class Simulation extends Thread {
     }
 
     public void operate() {
-
+        
         while (true) {
+            StudioCharacter[] chosenCharacters = getAdmin().chooseCharactersBattle();
             //Each cycle, the admin will start by choosing both characters that are going to battle
-            if (getAdmin().chooseCharactersBattle() == null) {
+            if (chosenCharacters == null) {
                 System.out.println("-------Game ended--------"); //If no characters were found in one studio, then the game will end
                 break;
             } else {
 
-                StudioCharacter[] chosenCharacters = getAdmin().chooseCharactersBattle();
+                
 
                 StudioCharacter character1 = chosenCharacters[0]; //Studio 1 Character
                 StudioCharacter character2 = chosenCharacters[1]; //Studio 2 character

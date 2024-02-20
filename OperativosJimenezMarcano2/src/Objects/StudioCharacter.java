@@ -35,7 +35,7 @@ public class StudioCharacter {
     private String[] imageCollection;
 
     private String name;
-
+    
     public StudioCharacter(String id, int skillPoints, int healthPoints, int strengthPoints, int agilityPoints,
             int overallQuality, String imageCollection) {
         this.id = id;

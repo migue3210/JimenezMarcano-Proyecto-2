@@ -116,7 +116,7 @@ public class Studio extends Thread { //The studio class contains all the informa
     public void setIdCounter(int idCounter) {
         this.idCounter = idCounter;
     }
-    
+
     public void queueInanitionUpdate(){
         //Priority 3 queue
         StudioCharacter pointer = getPrior3Queue().getHead();

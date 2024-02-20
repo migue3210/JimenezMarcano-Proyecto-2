@@ -97,9 +97,10 @@ public class Queue {
         while (pointer != null) {
 
             queue = queue + pointer.getId() + " | ";
-//            System.out.println(queue);
+            
             pointer = (StudioCharacter) pointer.getNext();
         }
+        //System.out.println(queue);
         return "| "+queue;
     }
 
