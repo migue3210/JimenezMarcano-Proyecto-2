@@ -47,8 +47,13 @@ public class Simulation extends Thread {
                 break;
             } else {
 
-                
-
+                int tenth = (int) (getBattleDuration()*0.10);
+                AI.setStatus("waiting");
+                try {
+                    sleep(1000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Simulation.class.getName()).log(Level.SEVERE, null, ex);
+                }
                 StudioCharacter character1 = chosenCharacters[0]; //Studio 1 Character
                 StudioCharacter character2 = chosenCharacters[1]; //Studio 2 character
 
@@ -80,9 +85,15 @@ public class Simulation extends Thread {
                 } catch (IOException ex) {
                     Logger.getLogger(Simulation.class.getName()).log(Level.SEVERE, null, ex);
                 }
-
+                AI.setStatus("Processing results");
                 AI.performBattle(character1, character2);
                 inanitionAvoider();
+                AI.setStatus("Announcing results");
+                try {
+                    sleep(1000);
+                } catch (InterruptedException ex) {
+                    Logger.getLogger(Simulation.class.getName()).log(Level.SEVERE, null, ex);
+                }
             }
         }
     }

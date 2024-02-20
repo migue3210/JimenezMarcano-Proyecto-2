@@ -15,7 +15,7 @@ import java.util.logging.Logger;
 public class ArtificialIntelligence extends Thread {
     private Admin admin;
     private Simulation simulation;
-    
+    private String status;
     public ArtificialIntelligence(Simulation simulation) {
         this.admin = simulation.getAdmin();
         this.simulation = simulation;
@@ -102,5 +102,13 @@ public class ArtificialIntelligence extends Thread {
         }
         
         
+    }
+
+    public String getStatus() {
+        return status;
+    }
+
+    public void setStatus(String status) {
+        this.status = status;
     }
 }
